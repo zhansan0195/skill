@@ -1,0 +1,23 @@
+npx skill-publish validate ./skills/example-skill
+npx skill-publish quote ./skills/example-skill
+npx skill-publish publish ./skills/example-skill --api-key $RB_API_KEY
+name: Validate Skill
+on:
+  pull_request:
+    paths:
+      - 'skills/example-skill/**'
+      - '.github/workflows/validate-skill.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate skill package
+        uses: hashgraph-online/skill-publish@v1
+        with:
+          mode: validate
+          skill-dir: skills/example-skill
+          annotate: "false"
