@@ -1,0 +1,35 @@
+{
+  "name": "example-skill",
+  "version": "0.1.0",
+  "description": "示例 skill，用于演示 aiagent 插入与使用",
+  "homepage": "https://github.com/zhansan0195/skill",
+  "skill": {
+    "name": "example-skill",
+    "emoji": "🤖",
+    "category": "utility",
+    "api_base": "https://api.example.com/",
+    "protocols": ["http"],
+    "capabilities": ["query","action"],
+    "files": {
+      "skill": "SKILL.md",
+      "metadata": "skill.json",
+      "docs": "docs/skills/example-skill.md"
+    }
+  },
+  "api": {
+    "base_url": "https://api.example.com/",
+    "authentication": {
+      "type": "bearer",
+      "header": "Authorization",
+      "format": "Bearer <TOKEN>"
+    },
+    "endpoints": {
+      "query": "/v1/query",
+      "action": "/v1/action"
+    }
+  },
+  "permissions": {
+    "scripts": {
+    }
+  }
+}
